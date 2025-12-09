@@ -61,10 +61,11 @@ class Category
             $stmt->execute($params);
 
             $result = $stmt->fetchAll();
-            $categories = [];
+            // $categories = [];
 
-            foreach ($result as $key => $row) {
-                $categories[] = new Category($row);
+            $categories = [];
+            foreach ($result as $row) {
+                $categories[] = $row;
             }
             return $categories;
         } catch (PDOException $e) {
